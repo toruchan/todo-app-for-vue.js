@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>My ToDos</title>
+  <style>
+  body{ font-size: 13px;
+         font-family: Arial;
+      }
+  h1{
+    font-size: 14px;
+    border-bottom: 1px;
+    solid: #ddd;
+    padding: 0 0 5px;
+    }
+  ul{ list-style-type: name;
+      padding: 0;
+      margin: 0 0 5px;
+    }
+  ul > li {
+    padding: 10px 0 5px;
+  }
+  input[type=text] { padding: 4px;}
+  </style>
+</head>
+<body>
+  <div id="myapp">
+    <h1>My ToDos</h1>
+    <form>
+        <input type="text" v-model="newtodo">
+        <button v-on:click="addTodo">追加</button>
+        <button v-on:click="deleteAll">全削除</button>
+    </form>
+    <ul>
+        <li v-for="todo in todos">
+            {{todo.item}}
+            <button v-on:click="deleteTodo(todo)">削除</button>
+        </li>
+    </ul>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
